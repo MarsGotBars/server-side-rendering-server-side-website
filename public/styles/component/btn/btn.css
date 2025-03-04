@@ -1,3 +1,29 @@
 .regular-btn{
     background-color: var(--theme);
+    padding: .5rem 1.5625rem;
+    border-radius: 1.75rem;
+    background: var(--theme);
+    border: none;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+
+    &.filter{
+        padding: .5rem 1rem;
+        background: var(--off-black);
+        font-weight: 400;
+    }
+
+    &.ghost{
+        background: transparent;
+        border: 1px solid var(--theme);
+        font-weight: 400;
+    }
+
+    &.large{
+        padding: .75rem 2.5rem;
+    }
+
+    &:hover{
+        opacity: .8;
+    }
 }
