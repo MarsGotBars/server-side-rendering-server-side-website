@@ -1,0 +1,5 @@
+{% if link.isNullOrEmtpy %}
+    <a href="{{ link }}" class="regular-btn">{{ text | default: 'empty' }}</a>
+  {% else %}
+    <button class="regular-btn">{{ text | default: 'empty' }}</button>
+{% endif %}
