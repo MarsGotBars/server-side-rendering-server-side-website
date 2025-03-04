@@ -8,8 +8,10 @@ body{
     --red: #984A4A;
     --green: #6E9158;
     --purple: #7C6097;
-
+    --default-bg: var(--black);
     --theme: var(--blue);
+    background: var(--default-bg);
+    color: var(--white);
 }
 
 body[data-theme= "red"]{
