@@ -36,7 +36,7 @@ const fetchThemedTask = async () => {
         pathName: taskThemes[themeIndex].pathName || `missing-name-${themeIndex}`,
         taskTheme: taskThemes[themeIndex].taskTheme || `missing-color-${themeIndex}`,
       };
-    });
+    });    
   } catch (error) {
     console.error("Error fetching themes:", error);
   }
@@ -63,12 +63,12 @@ app.get("/:theme", async function (request, response) {
 
   // Zoek taskData dmv de gevraagde :theme
   const foundData = taskData.find(data => data.pathName === requestedTheme)
-
+  !foundData && response.redirect('/')
   // Destructureer om props makkelijk door te
   const {taskTheme, title} = foundData
   
   // respond met de gevraagde pagina & het behorende thema
-  response.render(`${foundData.pathName}.liquid`, {
+  response.render(`task.liquid`, {
     taskTheme,
     title
   });
