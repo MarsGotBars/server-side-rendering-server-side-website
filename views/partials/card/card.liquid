@@ -1,0 +1,10 @@
+<article class="card">
+    <div class="card-image">
+        {% comment %} dynamisch plaatje {% endcomment %}
+        <img src="/assets/card-backgrounds/image-{{pageType}}.jpg" alt="card image">
+    </div>
+    <div class="card-content">
+        <p class="card-category default">{{category | default: "Oefening"}}</p>
+        <h3 class="card-title xs font-calvino">Card Title</h3>
+    </div>
+</article>
