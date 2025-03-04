@@ -1,5 +1,7 @@
 {% render './partials/head.liquid', themeColor: taskTheme, title: title %}
-<h1>{{title}}</h1>
-{% render './partials/btn/regular-btn.liquid', text: "hoi", link: "" %}
+<h1 class="xxl">{{title}}</h1>
 
+{% render './partials/btn/regular-btn.liquid', text: "hoi", link: "" %}
+{% render './partials/card/card.liquid', pageType: id %}
+{% comment %} <img src="assets/decorative/Mesh-Grad-{{id}}.svg" alt="blur"> {% endcomment %}
 {% render './partials/footer.liquid' %}
