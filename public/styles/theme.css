@@ -1,0 +1,25 @@
+body{
+    --white: #f5f5f5;
+    --black: #111111;
+    --off-black: #1d1d1d;
+    --gray: #A6A6A6;
+
+    --blue: #64AAC7;
+    --red: #984A4A;
+    --green: #6E9158;
+    --purple: #7C6097;
+
+    --theme: var(--blue);
+}
+
+body[data-theme= "red"]{
+    --theme: var(--red)
+}
+
+body[data-theme= "green"]{
+    --theme: var(--green)
+}
+
+body[data-theme= "purple"]{
+    --theme: var(--purple)
+}
