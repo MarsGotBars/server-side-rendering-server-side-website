@@ -1,15 +1,41 @@
+@font-face {
+    font-family: Calvino;
+    src: url('/assets/fonts/Calvino-Grande-Variable-trial.ttf');
+}
+
+@font-face {
+    font-family: Figtree;
+    src: url('/assets/fonts/Figtree-VariableFont_wght.ttf');
+}
+
 body{
+    /* default colors */
     --white: #f5f5f5;
     --black: #111111;
     --off-black: #1d1d1d;
     --gray: #A6A6A6;
 
+    /* colors */
     --blue: #64AAC7;
     --red: #984A4A;
     --green: #6E9158;
     --purple: #7C6097;
     --default-bg: var(--black);
     --theme: var(--blue);
+
+    /* fonts */
+    --calvino: Calvino, serif, Helvetica;
+    --figtree: Figtree, Tahoma, system-ui;
+
+    /* font sizes */
+    --size-xxl: 3.75rem;
+    --size-xl: 3rem;
+    --size-lg: 2.625rem;
+    --size-md: 2.5rem;
+    --size-sm: 2rem;
+    --size-xs: 1.5rem;
+    --size-xxs: 1.25rem;
+    --size-default: 1rem;
 }
 
 body[data-theme= "red"]{
