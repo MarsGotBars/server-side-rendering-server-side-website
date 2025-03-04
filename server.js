@@ -57,13 +57,14 @@ app.get("/", async function (request, response) {
 });
 
 // Dynamische parameter om te gebruiken bij het vinden van de correcte taskData
-app.get("/:theme", async function (request, response) {
+app.get("/stap/:theme", async function (request, response) {
   // Sla deze op voor leesbaarheid
   const requestedTheme = request.params.theme
-
   // Zoek taskData dmv de gevraagde :theme
   const foundData = taskData.find(data => data.pathName === requestedTheme)
-  !foundData && response.redirect('/')
+  if (!foundData) {
+    return response.redirect('/');
+  }
   // Destructureer om props makkelijk door te
   const {taskTheme, title, id} = foundData
   
