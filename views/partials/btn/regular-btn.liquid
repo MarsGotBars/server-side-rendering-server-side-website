@@ -1,5 +1,17 @@
 {% if link.isNullOrEmtpy %}
-    <a href="{{ link }}" class="regular-btn">{{ text | default: 'empty' }}</a>
+    <a href="{{ link }}" class="regular-btn {{ classes }}">
+      {% if classes contains "ghost" and saveIcon == true %}
+        <img src="/assets/icons/save.svg" alt="save icon">
+      {% endif %}
+      <span>{{ text | default: 'empty' }}</span>
+    </a>
   {% else %}
-    <button class="regular-btn">{{ text | default: 'empty' }}</button>
+    <button class="regular-btn {{ classes }}">
+      {% if classes contains "ghost" and saveIcon == true %}
+        <img src="/assets/icons/save.svg" alt="save icon">
+      {% endif %}
+      <span>
+        {{ text | default: 'empty' }}
+      </span>
+    </button>
 {% endif %}
