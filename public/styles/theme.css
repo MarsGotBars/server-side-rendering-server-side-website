@@ -10,8 +10,6 @@ body{
     --purple: #7C6097;
     --default-bg: var(--black);
     --theme: var(--blue);
-    background: var(--default-bg);
-    color: var(--white);
 }
 
 body[data-theme= "red"]{
