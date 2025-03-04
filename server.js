@@ -65,12 +65,13 @@ app.get("/:theme", async function (request, response) {
   const foundData = taskData.find(data => data.pathName === requestedTheme)
   !foundData && response.redirect('/')
   // Destructureer om props makkelijk door te
-  const {taskTheme, title} = foundData
+  const {taskTheme, title, id} = foundData
   
   // respond met de gevraagde pagina & het behorende thema
   response.render(`task.liquid`, {
     taskTheme,
-    title
+    title,
+    id
   });
 });
 
