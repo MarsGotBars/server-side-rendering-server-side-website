@@ -49,3 +49,20 @@ body[data-theme= "green"]{
 body[data-theme= "purple"]{
     --theme: var(--purple)
 }
+
+.theme-1{
+    --theme: var(--blue);   
+}
+
+.theme-2{
+    --theme: var(--red);
+}
+
+.theme-3{
+    --theme: var(--green);
+}
+
+.theme-4{
+    --theme: var(--purple);
+}
+
