@@ -1,102 +1,120 @@
 /* algemene styling */
 
+@view-transition {
+  navigation: auto;
+}
 /* CSS reset & font */
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--figtree);
-    /* normal */
-    font-weight: 400;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--figtree);
+  /* normal */
+  font-weight: 400;
 }
 /* height instellen */
-html, body{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 /* default bg en color op default color op alle tekst */
-body{
-    background: var(--default-bg);
-    *{
-        color: var(--white);
-    }
+body {
+  background: var(--default-bg);
+  * {
+    color: var(--white);
+  }
 }
 /* CSS reset & font */
-a{
-    color: inherit;
-    text-decoration: none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 /* CSS reset */
-ul, li{
-    list-style-type: none;
+ul,
+li {
+  list-style-type: none;
 }
 
 /* font styling */
-.xxl{
-    font-size: clamp(1.875rem, 8vw, var(--size-xxl));
-    font-family: var(--calvino);
-    font-weight: 800;
-    line-height: .9;
+.xxl {
+  font-size: clamp(1.875rem, 6vw, var(--size-xxl));
+  font-family: var(--calvino);
+  font-weight: 800;
+  line-height: 0.9;
 }
 
-.xl{
-    font-size: var(--size-xl);
+.xl {
+  font-size: var(--size-xl);
 }
 
-.lg{
-    font-size: var(--size-lg);
+.lg {
+  font-size: var(--size-lg);
 }
 
-.md{
-    font-size: var(--size-md);
+.md {
+  font-size: var(--size-md);
 }
 
-.sm{
-    font-size: var(--size-sm);
+.sm {
+  font-size: var(--size-sm);
 }
 
-.xs{
-    font-size: var(--size-xs);
+.xs {
+  font-size: var(--size-xs);
 }
 
-.xxs{
-    font-size: var(--size-xxs);
+.xxs {
+  font-size: var(--size-xxs);
 }
 
-.default{
-    font-size: var(--size-default);
+.default {
+  font-size: var(--size-default);
 }
-
 
 /* font weights */
-.light{
-    font-weight: 300;
+.light {
+  font-weight: 300;
 }
 
-.regular{
-    font-weight: 400;
+.regular {
+  font-weight: 400;
 }
 
-.medium{
-    font-weight: 500;
+.medium {
+  font-weight: 500;
 }
 
-.semi-bold{
-    font-weight: 600;
+.semi-bold {
+  font-weight: 600;
 }
 
-.bold{
-    font-weight: 700;
+.bold {
+  font-weight: 700;
 }
 
-.extra-bold{
-    font-weight: 800;
+.extra-bold {
+  font-weight: 800;
 }
 
 /* font families */
 .font-calvino {
-    font-family: var(--calvino);
+  font-family: var(--calvino);
 }
 
 .font-figtree {
-    font-family: var(--figtree);
+  font-family: var(--figtree);
+}
+
+img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.image-container {
+  height: 4rem;
+  aspect-ratio: 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
 }
