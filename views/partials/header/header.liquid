@@ -1,0 +1,34 @@
+{% assign progressValue = 20 %}
+
+<header>
+    <details>
+        <summary>
+            <div class="heading-container">
+                <div class="image-container">
+                    <img class="main-mesh" src="/assets/images/main-mesh-{{pageType}}.svg" alt="taak categorie">
+                </div>
+                <h1 class="xxl">{{title}}</h1>
+            </div>
+            <div class="arrow-label">
+                selecteer
+                {% render 'partials/icons/arrow.liquid' %}
+            </div>
+        </summary>
+        <div class="dropdown-container">
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <a href="/stap/{{task.pathName}}" {% if task.id == pageType %}class="extra-bold"{% endif %}>
+                        <div class="image-container"><img src="/assets/images/main-mesh-{{task.id}}.svg" alt="taak categorie"></div>
+                        {{task.title}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </details>
+    <div class="progress-container">
+        <progress class="progress" value="{{ progressValue }}" max="100"></progress>
+        <span class="progress-tooltip">{{ progressValue }}% volbracht</span>
+    </div>
+</header>
