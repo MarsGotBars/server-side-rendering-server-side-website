@@ -1,5 +1,5 @@
 {% render './partials/head.liquid', themeColor: taskTheme, title: title %}
-<h1 class="xxl">{{title}}</h1>
+{% render './partials/header/header.liquid', title: title, tasks: tasks, pageType: id%}
 
 {% render './partials/btn/regular-btn.liquid', text: "hoi", link: "" %}
 {% render './partials/card/card.liquid', pageType: id %}
