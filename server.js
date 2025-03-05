@@ -58,6 +58,12 @@ app.get("/", async function (request, response) {
 
 // Dynamische parameter om te gebruiken bij het vinden van de correcte taskData
 app.get("/stap/:theme", async function (request, response) {
+  // Custom lijst met alle task titles en pathNames
+  const tasks = taskData.map(task => ({
+    title: task.title,
+    pathName: task.pathName,
+    id: task.id
+  }));
   // Sla deze op voor leesbaarheid
   const requestedTheme = request.params.theme
   // Zoek taskData dmv de gevraagde :theme
@@ -68,11 +74,13 @@ app.get("/stap/:theme", async function (request, response) {
   // Destructureer om props makkelijk door te
   const {taskTheme, title, id} = foundData
   
+  console.log(foundData);
   // respond met de gevraagde pagina & het behorende thema
   response.render(`task.liquid`, {
     taskTheme,
     title,
-    id
+    id,
+    tasks
   });
 });
 
