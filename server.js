@@ -68,9 +68,6 @@ app.get("/stap/:theme", async function (request, response) {
   const requestedTheme = request.params.theme
   // Zoek taskData dmv de gevraagde :theme
   const foundData = taskData.find(data => data.pathName === requestedTheme)
-  if (!foundData) {
-    return response.redirect('/');
-  }
   // Destructureer om props makkelijk door te
   const {taskTheme, title, id} = foundData
   
@@ -82,6 +79,20 @@ app.get("/stap/:theme", async function (request, response) {
     id,
     tasks
   });
+});
+
+app.get("/stap/:theme/:pageId", async function (request, response) {
+  const {theme, pageId} = request.params
+  const foundData = taskData.find(data => data.pathName === theme)
+  const exercise = exerciseListJson.find(exercise => exercise.id === parseInt(pageId))
+  const {title, description} = exercise
+  const {taskTheme, id} = foundData
+  response.render(`exercise.liquid`, {
+    taskTheme,
+    title,
+    description,
+    id
+  })
 });
 
 app.post("/", async function (request, response) {
