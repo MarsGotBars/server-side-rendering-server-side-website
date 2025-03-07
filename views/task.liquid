@@ -1,7 +1,18 @@
-{% render './partials/head.liquid', themeColor: taskTheme, title: title %}
-{% render './partials/header/header.liquid', title: title, tasks: tasks, pageType: id%}
+{% render './partials/head.liquid'
+  , themeColor: taskTheme
+  , title: title %}
+{% render './partials/header/header.liquid'
+  , title: title
+  , tasks: tasks
+  , pageType: id %}
 
-{% render './partials/btn/regular-btn.liquid', text: "hoi", link: "" %}
-{% render './partials/card/card.liquid', pageType: id %}
+{% render './partials/btn/regular-btn.liquid'
+  , text: "hoi"
+  , link: "" %}
+{% for exercise in exercises %}
+  {% render './partials/card/card.liquid'
+    , pageType: id
+    , exercise: exercise
+  %}{% endfor %}
 {% comment %} <img src="assets/decorative/Mesh-Grad-{{id}}.svg" alt="blur"> {% endcomment %}
 {% render './partials/footer.liquid' %}
