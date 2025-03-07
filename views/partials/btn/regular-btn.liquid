@@ -1,17 +1,17 @@
-{% if link.isNullOrEmtpy %}
-    <a href="{{ link }}" class="regular-btn {{ classes }}">
-      {% if classes contains "ghost" and saveIcon == true %}
-        <img src="/assets/icons/save.svg" alt="save icon">
-      {% endif %}
-      <span>{{ text | default: 'empty' }}</span>
-    </a>
-  {% else %}
-    <button class="regular-btn {{ classes }}">
-      {% if classes contains "ghost" and saveIcon == true %}
-        <img src="/assets/icons/save.svg" alt="save icon">
-      {% endif %}
-      <span>
-        {{ text | default: 'empty' }}
-      </span>
-    </button>
+{% if link != "" %}
+  <a href="{{ link }}" class="regular-btn {{ classes }}">
+    {% if classes contains "ghost" and saveIcon == true %}
+      <img src="/assets/icons/save.svg" alt="save icon">
+    {% endif %}
+    <span>{{ text | default: 'Start oefening' }}</span>
+  </a>
+{% else %}
+  <button class="regular-btn {{ classes }}">
+    {% if classes contains "ghost" and saveIcon == true %}
+      <img src="/assets/icons/save.svg" alt="save icon">
+    {% endif %}
+    <span>
+      {{ text | default: 'Start oefening' }}
+    </span>
+  </button>
 {% endif %}
