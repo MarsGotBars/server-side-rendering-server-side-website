@@ -5,7 +5,6 @@ const exerciseList = await fetch(
   "https://fdnd-agency.directus.app/items/dropandheal_exercise"
 );
 // Skip hiermee het benoemen van 'data'
-// ! gebruik ik nog niet
 const { data: exerciseListJson } = await exerciseList.json();
 
 let taskData = [];
@@ -69,15 +68,26 @@ app.get("/stap/:theme", async function (request, response) {
   // Zoek taskData dmv de gevraagde :theme
   const foundData = taskData.find(data => data.pathName === requestedTheme)
   // Destructureer om props makkelijk door te
-  const {taskTheme, title, id} = foundData
+  const {pathName,taskTheme, title, id, exercise: exerciseList} = foundData
   
-  console.log(foundData);
+  const exerciseData = exerciseList.map(exercise => {
+    return exerciseListJson.find(e => e.id === exercise)
+  });
+  const exercises = exerciseData.map(exercise =>{
+    return {
+      ...exercise,
+      // absoluut pad, altijd handig -Krijn
+      pathName: `/stap/${pathName}/${exercise.id}`
+    }
+  })
+
   // respond met de gevraagde pagina & het behorende thema
   response.render(`task.liquid`, {
     taskTheme,
     title,
     id,
-    tasks
+    tasks,
+    exercises
   });
 });
 
