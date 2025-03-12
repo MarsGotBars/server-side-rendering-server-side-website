@@ -11,16 +11,20 @@
 body{
     /* default colors */
     --white: #f5f5f5;
+    --rgba-white: 245, 245, 245;
     --black: #111111;
+    --rgba-black: 17, 17, 17;
     --off-black: #1d1d1d;
+    --rgba-off-black: 29, 29, 29;
     --gray: #A6A6A6;
+    --rgba-gray: 166, 166, 166;
 
     /* colors */
     --blue: #64AAC7;
     --red: #984A4A;
     --green: #6E9158;
     --purple: #7C6097;
-    --default-bg: var(--black);
+    --default-bg: var(--off-black);
     --theme: var(--blue);
 
     /* fonts */

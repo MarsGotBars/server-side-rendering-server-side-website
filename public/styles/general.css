@@ -21,9 +21,34 @@ body {
 }
 /* default bg en color op default color op alle tekst */
 body {
+  @media screen and (min-width: 960px) {
+    padding: 0 4.875rem;
+  }
+  position: relative;
+  > .glow {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+      top: -65%;
+      left: -700px;
+      position: absolute;
+      z-index: -1;
+      overflow: visible;
+      path,
+      g,
+      rect {
+        overflow: visible;
+      }
+    }
   background: var(--default-bg);
   * {
     color: var(--white);
+  }
+}
+
+main{
+  @media screen and (max-width: 960px) {
+    padding: 0 1.5rem;
   }
 }
 /* CSS reset & font */
@@ -108,6 +133,7 @@ li {
 }
 
 img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -116,5 +142,4 @@ img {
   height: 4rem;
   aspect-ratio: 1;
   border-radius: 0.75rem;
-  overflow: hidden;
 }
