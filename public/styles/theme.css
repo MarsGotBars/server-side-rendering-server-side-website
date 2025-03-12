@@ -12,6 +12,7 @@ body{
     /* default colors */
     --white: #f5f5f5;
     --black: #111111;
+    --rgba-black: 17, 17, 17;
     --off-black: #1d1d1d;
     --gray: #A6A6A6;
 

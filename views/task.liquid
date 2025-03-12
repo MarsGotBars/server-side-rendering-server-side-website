@@ -1,6 +1,7 @@
 {% render './partials/head.liquid'
-  , themeColor: taskTheme
-  , title: title %}
+  , themeColor: theme
+  , title: title
+  , id: id %}
 {% render './partials/header/header.liquid'
   , title: title
   , tasks: tasks
@@ -10,9 +11,12 @@
   , text: "hoi"
   , link: "" %}
 {% for exercise in exercises %}
+  {% assign link = "/" | append: theme | append: "/" | append: forloop.index %}
+
   {% render './partials/card/card.liquid'
     , pageType: id
     , exercise: exercise
+    , link: link
   %}{% endfor %}
 {% comment %} <img src="assets/decorative/Mesh-Grad-{{id}}.svg" alt="blur"> {% endcomment %}
 {% render './partials/footer.liquid' %}

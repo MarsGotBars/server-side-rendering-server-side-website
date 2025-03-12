@@ -4,40 +4,12 @@ import { Liquid } from "liquidjs";
 let taskData = [];
 let exerciseData = [];
 const fetchThemedTask = async () => {
-  try {
-    const taskList = await fetch(
-      "https://fdnd-agency.directus.app/items/dropandheal_task"
-    );
-    // Skip hiermee het benoemen van 'data'
-    const { data: taskListJson } = await taskList.json();
-
-    taskData = taskListJson.map((task) => {
-      // In het geval dat de map fout gaat maken we deze array niet aan.
-      // ! remove, was added to the database
-      const taskThemes = [
-        { taskTheme: "blue", pathName: "verlies-aanvaarden" },
-        { taskTheme: "red", pathName: "pijn-doorvoelen" },
-        { taskTheme: "green", pathName: "verder-verandering" },
-        { taskTheme: "purple", pathName: "emotioneel-verder" },
-      ];
-
-      // offset aangezien ids starten bij 1 en de array bij 0, dus -1
-      const themeIndex = task.id - 1;
-
-      // Bouw hier heb object op zoals we dat willen, met fallbacks als ik iets fout heb geschreven.
-      return {
-        // Alle keys die al bestaan in het object
-        ...task,
-        // En de keys die we zelf toevoegen
-        pathName:
-          taskThemes[themeIndex].pathName || `missing-name-${themeIndex}`,
-        taskTheme:
-          taskThemes[themeIndex].taskTheme || `missing-color-${themeIndex}`,
-      };
-    });
-  } catch (error) {
-    console.error("Error fetching themes:", error);
-  }
+  const taskList = await fetch(
+    "https://fdnd-agency.directus.app/items/dropandheal_task"
+  );
+  // Skip hiermee het benoemen van 'data'
+  const { data: taskListJson } = await taskList.json();
+  taskData = taskListJson;
 };
 
 const fetchThemedExercise = async () => {
@@ -68,24 +40,26 @@ app.get("/", async function (request, response) {
 });
 
 // Dynamische parameter om te gebruiken bij het vinden van de correcte taskData
-app.get("/:theme", async function (request, response, next) {
+app.get("/:theme", async function (request, response) {
   // Custom lijst met alle task titles en pathNames
   const tasks = taskData.map((task) => ({
     title: task.title,
-    pathName: task.pathName,
+    pathName: task.theme,
     id: task.id,
   }));
+
   // Sla deze op voor leesbaarheid
   const requestedTheme = request.params.theme;
+
   // Zoek taskData dmv de gevraagde :theme
-  const foundData = taskData.find((data) => data.pathName === requestedTheme);
+  const foundData = taskData.find((data) => data.theme === requestedTheme);
 
   if (!foundData) {
     return response.status(404).render("err.liquid");
-  }  
+  }
 
   // Destructureer om props makkelijk door te
-  const { pathName, taskTheme, title, id, exercise: exerciseList } = foundData;
+  const { pathName, theme, title, id, exercise: exerciseList } = foundData;
 
   const exerciseInfo = exerciseList.map((exercise) => {
     return exerciseData.find((e) => e.id === exercise);
@@ -100,7 +74,7 @@ app.get("/:theme", async function (request, response, next) {
 
   // respond met de gevraagde pagina & het behorende thema
   response.render(`task.liquid`, {
-    taskTheme,
+    theme,
     title,
     id,
     tasks,
@@ -110,8 +84,8 @@ app.get("/:theme", async function (request, response, next) {
 
 app.get("/:theme/:pageId", async function (request, response) {
   const { theme, pageId } = request.params;
-  const foundData = taskData.find((data) => data.pathName === theme);
-  
+  const foundData = taskData.find((data) => data.theme === theme);
+
   // - 1 omdat we door een array lopend die start op 0
   const exercise = exerciseData.find(
     (exercise) => exercise.id === foundData.exercise[pageId - 1]
@@ -119,13 +93,14 @@ app.get("/:theme/:pageId", async function (request, response) {
   if (!exercise) {
     return response.status(404).render("err.liquid");
   }
-  const { title, description } = exercise;
-  const { taskTheme, id } = foundData;
+  const { title, description, image } = exercise;
+  const { foundtheme, id } = foundData;
   response.render(`exercise.liquid`, {
-    taskTheme,
+    foundtheme,
     title,
     description,
     id,
+    image,
   });
 });
 

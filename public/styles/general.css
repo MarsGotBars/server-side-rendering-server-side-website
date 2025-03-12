@@ -21,6 +21,16 @@ body {
 }
 /* default bg en color op default color op alle tekst */
 body {
+  @media screen and (min-width: 960px) {
+  padding: 0 4.875rem;
+  }
+  position: relative;
+  .decor{
+    position: absolute;
+    left: -65%;
+    top: -65%;
+    z-index: -1;
+  }
   background: var(--default-bg);
   * {
     color: var(--white);
@@ -108,6 +118,7 @@ li {
 }
 
 img {
+  max-width: 100vw;
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -116,5 +127,4 @@ img {
   height: 4rem;
   aspect-ratio: 1;
   border-radius: 0.75rem;
-  overflow: hidden;
 }

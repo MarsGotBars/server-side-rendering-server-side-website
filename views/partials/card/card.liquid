@@ -5,7 +5,7 @@
   </div>
   <div class="card-content">
     {% render "./partials/btn/regular-btn.liquid"
-      , link: exercise.pathName %}
+      , link: link %}
     <p class="card-category default">{{ category | default: "Oefening" }}</p>
     <h3 class="card-title xs font-calvino">{{ exercise.title }}</h3>
   </div>
