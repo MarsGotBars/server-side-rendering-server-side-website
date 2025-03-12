@@ -6,17 +6,18 @@
   , title: title
   , tasks: tasks
   , pageType: id %}
-
-{% render './partials/btn/regular-btn.liquid'
-  , text: "hoi"
-  , link: "" %}
+<main>
+  <ul class="card-container">
 {% for exercise in exercises %}
   {% assign link = "/" | append: theme | append: "/" | append: forloop.index %}
-
+<li class="card-item">
   {% render './partials/card/card.liquid'
     , pageType: id
     , exercise: exercise
     , link: link
   %}{% endfor %}
+  </li>
+  </ul>
+  </main>
 {% comment %} <img src="assets/decorative/Mesh-Grad-{{id}}.svg" alt="blur"> {% endcomment %}
 {% render './partials/footer.liquid' %}
