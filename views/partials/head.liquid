@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,6 @@
     <title>{{title | default: "Drop & heal"}}</title>
 </head>
 <body data-theme="{{themeColor | default: blue}}">
-<div class="decor">
-    <img src="/assets/decorative/Mesh-Grad-{{ id }}.svg" alt="">
-</div>
+{% if id %}
+    {% render './partials/decor/Mesh-Grad-{{ id }}.liquid', classes: "glow"  %}
+{% endif %}
