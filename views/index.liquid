@@ -1,9 +1,24 @@
 {% render './partials/head.liquid' %}
-
+<main>
 {% render './partials/btn/regular-btn.liquid'
   , text: "Concept opslaan"
   , link: ""
   , classes: "ghost"
   , saveIcon: true %}
-
+  {% render './partials/btn/regular-btn.liquid'
+  , text: "Geen icon"
+  , link: ""
+  , classes: "ghost"
+  , saveIcon: false %}
+  {% render './partials/btn/regular-btn.liquid'
+  , text: "Default"
+  , link: ""
+  , classes: ""
+  , saveIcon: false %}
+  {% render './partials/btn/regular-btn.liquid'
+  , text: "Linkje"
+  , link: "/blue"
+  , classes: ""
+  , saveIcon: false %}
+  </main>
 {% render './partials/footer.liquid' %}
