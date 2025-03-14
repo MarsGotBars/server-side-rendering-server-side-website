@@ -1,14 +1,20 @@
 {% if link != "" %}
   <a href="{{ link }}" class="regular-btn {{ classes }}">
     {% if classes contains "ghost" and saveIcon == true %}
-      <img src="/assets/icons/save.svg" alt="save icon">
+      <img
+        src="/assets/icons/save.svg"
+        alt="save icon"
+        class="saveIcon">
     {% endif %}
     <span>{{ text | default: 'Start oefening' }}</span>
   </a>
 {% else %}
-  <button class="regular-btn {{ classes }}">
+  <button class="regular-btn {{ classes }}" type="{{submit | default: "button"}}">
     {% if classes contains "ghost" and saveIcon == true %}
-      <img src="/assets/icons/save.svg" alt="save icon">
+      <img
+        src="/assets/icons/save.svg"
+        alt="save icon"
+        class="saveIcon">
     {% endif %}
     <span>
       {{ text | default: 'Start oefening' }}
