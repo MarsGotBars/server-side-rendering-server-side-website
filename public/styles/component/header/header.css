@@ -21,10 +21,11 @@ header {
     padding: 0 0.5rem;
   }
 
-  svg, svg path{
+  svg,
+  svg path {
     fill: transparent;
     stroke: var(--white);
-    transition: .3s ease;
+    transition: 0.3s ease;
   }
 
   .main-nav {
@@ -35,13 +36,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    a{
+    gap: 1rem;
+    a {
       gap: 0.5rem;
-        align-items: center;
-        display: flex;
-        &:hover svg path{
-          fill: var(--white);
-        }
+      align-items: center;
+      display: flex;
+      &:hover svg path {
+        fill: var(--white);
+      }
     }
     @media screen and (max-width: 960px) {
       position: fixed;
@@ -52,7 +54,7 @@ header {
     }
     border-radius: 0.875rem;
     ul {
-      gap: 2.5rem;
+      gap: 1rem;
       display: flex;
       li a {
         gap: 0.5rem;
@@ -69,6 +71,9 @@ header {
           }
         }
       }
+      @media screen and (min-width: 960px) {
+        gap: 2.5rem;
+      }
     }
   }
   .task-nav {
@@ -82,7 +87,7 @@ header {
     &:has(details[open]) {
       .dropdown-container {
         ul {
-          animation: fadeIn .3s ease-out forwards;
+          animation: fadeIn 0.3s ease-out forwards;
         }
       }
     }
@@ -110,7 +115,7 @@ header {
 }
 
 @keyframes fadeIn {
-  to{
+  to {
     opacity: 1;
   }
 }
