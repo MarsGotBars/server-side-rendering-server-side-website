@@ -3,14 +3,14 @@ header {
   display: flex;
   flex-direction: column;
   gap: 3.25rem;
-  margin-top: 2.75rem;
+  padding-top: 2.75rem;
   margin-bottom: 3.25rem;
   border-bottom: 1px solid transparent;
   transition: background-color 0.2s ease-out;
   @media screen and (max-width: 960px) {
     border-bottom: 1px solid #1f1f1f;
     background-color: var(--black);
-    margin-top: 0;
+    padding-top: 0;
     &:has(details[open]) {
       border-radius: 0.25rem;
       border-bottom: 1px solid #1f1f1f;
