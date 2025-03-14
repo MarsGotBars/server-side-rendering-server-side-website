@@ -11,11 +11,12 @@
 {% for exercise in exercises %}
   {% assign link = "/" | append: theme | append: "/" | append: forloop.index %}
 <li class="card-item">
-  {% render './partials/card/card.liquid'
+  {% render './partials/card/exercise-card.liquid'
     , pageType: id
     , exercise: exercise
     , link: link
-  %}{% endfor %}
+  %}
+{% endfor %}
   </li>
   </ul>
   </main>
