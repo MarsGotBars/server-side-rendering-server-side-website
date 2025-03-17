@@ -94,9 +94,9 @@ app.get("/:theme/:pageId", async function (request, response) {
     return response.status(404).render("err.liquid");
   }
   const { title, description, image } = exercise;
-  const { theme: foundTheme, id } = foundData;
+  const { foundtheme, id } = foundData;
   response.render(`exercise.liquid`, {
-    foundTheme,
+    foundtheme,
     title,
     description,
     id,
