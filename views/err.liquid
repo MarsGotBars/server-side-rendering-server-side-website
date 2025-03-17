@@ -1,1 +1,10 @@
-<h1>404</h1>
+{% render './partials/head.liquid' %}
+<main class="central">
+  <h1 class="xxl font-figtree">404</h1>
+  <p class="xs text-center">Het lijkt erop dat je buiten het programma bent beland</p>
+  {% render './partials/btn/regular-btn.liquid'
+    , text: "Terug naar home"
+    , link: '/'
+    , classes: 'fit-btn' %}
+</main>
+{% render './partials/footer.liquid' %}
