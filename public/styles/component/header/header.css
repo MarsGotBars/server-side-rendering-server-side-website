@@ -1,5 +1,5 @@
 /* header container */
-header {
+body > header {
   display: flex;
   flex-direction: column;
   gap: 3.25rem;

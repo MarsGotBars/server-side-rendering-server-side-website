@@ -9,7 +9,7 @@
     <span>{{ text | default: 'Start oefening' }}</span>
   </a>
 {% else %}
-  <button class="regular-btn {{ classes }}" type="{{submit | default: "button"}}">
+  <button class="regular-btn {{ classes }}" type="{{type | default: "button"}}">
     {% if classes contains "ghost" and saveIcon == true %}
       <img
         src="/assets/icons/save.svg"
